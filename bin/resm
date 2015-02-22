@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+import argparse
+from pyresm.app import app
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-p', '--port', type=int, default=5000, help='server port')
+parser.add_argument('-c', '--count', type=int, default=5, help='count of resources')
+parser.add_argument('-n', '--name', type=str, default='r', help='name of resource')
+parser.add_argument('--debug', action="store_true", help='debugging')
+
+
+args = parser.parse_args()
+
+app.run(count=args.count, name=args.name, port=args.port, debug=args.debug)
